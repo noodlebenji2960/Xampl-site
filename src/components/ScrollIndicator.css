@@ -1,0 +1,83 @@
+.scroll-indicator-container{
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  background: var(--card-bg);
+  border-radius: 10px;
+  border: 1px solid var(--card-border);
+  border: 0;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 2px 5px var(--box-shadow-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  height: 50px;
+  width: 50px;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.padlock{
+  background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out, opacity 0.25s ease-in-out;
+    height: 0px;
+  }
+
+  .scroll-indicator-container svg{
+    height: 30px;
+    width: 30px;
+  }
+
+  .padlock svg{
+    transform: translateY(4px) translateX(-4px);
+    stroke: var(--color-text);
+    height: 40px;
+    width: 40px;
+  }
+
+  .padlock:has(.latch-open){
+    height: 0px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .padlock:has(.latch-closed){
+    opacity: 100;
+    height: 40px;
+  }
+  
+  #latch {
+    stroke-width: 2;
+    fill: transparent;
+    transition: all 0.3s ease-in-out, opacity 0.25s ease-in-out;
+  }
+
+  .padlock rect{
+    stroke-width: 2;
+    transition: all 0.3s ease-in-out, opacity 0.25s ease-in-out;
+  }
+
+  .padlock:has(.latch-closed) rect{
+    stroke: var(--color-text) !important;
+  }
+  
+  .latch-open #latch {
+    d: path('M 16 16 C 12 0 32 0 32 10');
+  }
+  
+  .latch-closed #latch {
+    d: path('M 16 16 C 12 0 36 0 32 16');
+    transition: all 0.3s ease-in-out, opacity 0.25s ease-in-out;
+    stroke: var(--color-text) !important;
+  }
+
+/* Fade-in effect for the scroll indicator container */
+.scroll-indicator-container.fade-in {
+  opacity: 1;
+}

@@ -1,0 +1,265 @@
+.cta,
+.cta2 {
+  background-color: var(--color-link);
+  color: var(--color-text);
+  padding: 2rem;
+  text-align: center;
+  height: 35vh;
+  position: relative;
+  overflow: hidden;
+  border-radius: 25px;
+  border-left: 1px solid var(--color-bg);
+  border-right: 1px solid var(--color-bg);
+  border-top: 1px solid var(--color-bg);
+  box-shadow: 0 5px 10px var(--card-bg);
+  transition: all 0.25s ease-in-out;
+}
+
+.cta2{
+  height: fit-content;
+  background-color: var(--accent4);
+  margin-bottom: 100px;
+}
+
+.cta2::after{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: "";
+  z-index: 0;
+  background-image: url("../assets//exampleLogo1.svg");
+  background-size: 49.5px;
+  filter: invert();
+  opacity: 0.1;
+}
+
+@media screen and (max-width: 475px) {
+  .cta{
+    height: 45vh; /* Apply height only on larger screens */
+  }
+}
+
+@media screen and (max-width: 315px) {
+  .cta {
+    height: 55vh; /* Apply height only on larger screens */
+  }
+}
+
+@media screen and (max-width: 260px) {
+  .cta{
+    height:200px;
+  }
+  .cta p{
+    display: none;
+  }
+}
+
+
+.cta-content,
+.cta-content2 {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cta h2,
+.cta2 h2 {
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  position: relative;
+  width: fit-content;
+  left: -12px;
+  color: var(--accent2);
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.cta2 h2{
+  color: white;
+  text-shadow: 0 2px 4px var(--card-bg);
+}
+
+.cta p,
+.cta2 p {
+  margin-bottom: 2rem;
+  font-size: medium;
+  line-height: 1.6;
+  z-index: 1;
+}
+
+
+.cta-button,
+.cta-button2 {
+  position: absolute;
+  bottom: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  color: var(--card-bg);
+  background-color: var(--color-bg);
+  text-decoration: none;
+  border-radius: var(--border-radius-small);
+  font-weight: 900;
+  transition: 0.25s all;
+  box-shadow: 1px 5px 10px var(--box-shadow-color);
+  font-weight: 500;
+  user-select: none;
+}
+
+.cursor {
+  width: 40px; /* Adjust as needed */
+  height: 40px; /* Adjust as needed */
+  position: absolute;
+  bottom: 20%;
+  right: -10%;
+  background-image: url("../assets/pointer.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none; /* Prevent the cursor from interfering with mouse events */
+  transform: translate(50%, -50%); /* Center the cursor */
+  z-index: 1000; /* Make sure it's above other content */
+}
+
+/* Define the more exaggerated curved path animation */
+@keyframes moveAlongCurve {
+  0% {
+    bottom: 72px;
+    right: -10%;
+    transform: translate(50%, -50%);
+  }
+  40%{
+    transform: translate(100%, -30%) scale(1.25);
+  }
+  100% {
+    bottom: 52px;
+    right: 50%;
+    transform: translate(100%, 80%); /* Final position */
+  }
+}
+
+/* Trigger the animation when the CTA comes into view */
+.cursor.animate {
+  animation: moveAlongCurve 1.2s cubic-bezier(0.65, 0, 0.35, 1) forwards, pulse 4s infinite 1.4s;
+  border: none !important;
+  background-color: none !important;
+  box-shadow: none !important;
+}
+
+/* Pulsing animation for the button */
+@keyframes pulse {
+  0% {
+    border: 0px solid var(--color-bg);
+    bottom: 52px;
+    scale: 1;
+  }
+  5% {
+    border: 5px solid var(--color-bg);
+    bottom: 49px;
+    scale: 1;
+  }
+  95% {
+    border: 5px solid var(--color-bg);
+    bottom: 49px;
+    scale: 1;
+  }
+  100% {
+    border: 0px solid var(--color-bg);
+    bottom: 52px;
+    scale: 1;
+  }
+}
+
+.cta:has(.cta-button:hover) .cursor{
+  opacity: 0;
+}
+
+/* Apply the pulse animation when the section is visible */
+.cta.animate .cta-button {
+  animation: pulse 4s infinite 1.4s;
+  scale: 1.1;
+}
+
+.cta-button:hover,
+.cta-button2:hover {
+  font-size: large;
+  font-weight: 1000;
+  color: white;
+  background: var(--accent3);
+  outline: 1px solid var(--color-bg);
+  padding: 1rem 1.2rem 0.7rem 1.2rem;
+  animation: none !important;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 1);
+}
+
+.cta-button:active,
+.cta-button2:active{
+  color: var(--accent2);
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 1);
+  transition: all 0.10s ease-in-out;
+}
+
+.cta h2::after,
+.cta2 h2::after {
+  position: absolute;
+  bottom: 16px;
+  right: -14px;
+  width: 6px;
+  height: 6px;
+  background: var(--accent2);
+  content: "";
+  visibility: hidden;
+}
+
+.cta2 h2::after{
+  box-shadow: 0 2px 4px var(--card-bg);
+}
+
+.cta2 h2::after{
+  background: var(--color-text);
+}
+
+.cta.animate h2::after {
+  animation: appear 2s forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes appear {
+  0% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
+.question-mark {
+  position: absolute;
+  right: -25px;
+  top: -8px;
+}
+
+.question-mark svg {
+  width: 30px;
+  height: 21px;
+  stroke: var(--accent2);
+  stroke-width: 23;
+  fill: none;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+
+.cta.animate .question-mark svg{
+  animation: draw 2s forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+

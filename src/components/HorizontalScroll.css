@@ -1,0 +1,116 @@
+.sideways-scroll-slide-container {
+    position: relative; /* Make sure it's positioned for the absolute scroll buttons */
+    width: calc(100% - 20px);
+  }
+
+  
+/* Container for the slides */
+.sideways-scroll-slide {
+    display: flex;
+    overflow-x: hidden;
+    padding: 40px 0 75px 0;
+    width: 80%;
+    margin: auto;
+  }
+  
+  .sideways-scroll-slide-container::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, var(--card-bg), transparent 11% 89%, var(--card-bg)); /* Red overlay */
+    z-index: 1; /* Make sure the overlay is behind the content */
+    margin: auto;
+    opacity: 1;
+  }
+  
+  /* Scroll buttons */
+  .scroll-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    --size: 40px;
+    height: var(--size);
+    width: var(--size);
+    border-radius: 50%;
+    color: var(--color-text, #000); /* Default color if not set */
+    font-size: 14px;
+    transition: 0.25s ease-in-out 0.5s;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 99;
+    opacity: 0;
+  }
+  
+  .scroll-button.left {
+    left: -15px;
+  }
+  
+  .scroll-button.right {
+    right: -15px;
+  }
+  
+  /* Show scroll buttons on hover */
+  section:hover .sideways-scroll-slide-container .scroll-button.left {
+    left: 0px;
+    opacity: 1;
+  }
+  
+  section:hover .sideways-scroll-slide-container .scroll-button.right {
+    right: 0px;
+    opacity: 1;
+  }
+  
+  /* Slide styles */
+  .slide {
+    position: relative;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out 0.25s, opacity 0s ease-in-out;
+    opacity: 0;
+    z-index: 0;
+  }
+
+  .activeSlide{
+    opacity: 1;
+    transition: transform 0.5s ease-in-out 0.25s, opacity 1s ease-in-out;
+  }
+  
+  /* Dots indicator styles */
+  .dots-indicator {
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    transition: 0.25s ease-in-out 0.5s;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  section:hover .dots-indicator{
+    bottom: 20px;
+    opacity: 1;
+  }
+  
+  .dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dot.active {
+    background-color: var(--accent1);
+  }
+  

@@ -1,0 +1,299 @@
+/* Basic styling for the header and navigation */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: start;
+  padding: var(--header-padding);
+  box-shadow: 0 0 5px var(--box-shadow-color);
+  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out, max-height 0.25s ease-in-out;
+  background: var(--color-bg);
+  z-index: 999;
+  max-height: 20px;
+  overflow: hidden;
+  user-select: none;
+}
+
+.header.expandedHeader{
+  max-height: 100vh;
+}
+
+.header > *:first-of-type{
+  transition: all 0.25s ease-in-out;
+}
+
+.header.expandedHeader > *:first-of-type:not(.header-content){
+  margin-top: 15px;
+}
+
+.header:hover,
+.header.expanded:has(.sub-nav-list.expanded) {
+  max-height: 100vh;
+}
+
+.header .logo {
+  position: absolute;
+  transform: translateX(-30px) translateY(-30px) rotate(25deg);
+  --size: 100px;
+  width: var(--size);
+  height: var(--size);
+  transition: all 0.25s ease-in-out;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.header.expandedHeader .logo{
+  transform: translateY(0px) rotate(0deg);
+  --size: 50px;
+  width: var(--size);
+  height: var(--size);
+  fill: var(--accent1);
+  opacity: 1;
+  transition-delay: 0.1s;
+}
+
+.header:not(.expanded) .logo {
+  fill: var(--accent1) !important;
+}
+
+.header:hover .logo {
+  fill: var(--accent4) !important;
+  transform: scale(1.1) rotateY(180deg) !important;
+}
+
+
+.header h1 {
+  margin: 2px;
+  margin-top: 2px;
+  margin-left: 10px;
+  padding: 0;
+  transition: all 0.25s ease-in-out;
+  font-size: medium;
+  z-index: 1;
+  text-shadow: 0 1px 3px rgba(128, 128, 128, 0.717);
+  color: var(--color-text);
+  cursor: pointer;
+  display: flex;
+}
+
+.header:not(.expanded) h1{
+  color: var(--color-text);
+}
+
+.header.expandedHeader h1{
+  font-size: xx-large;
+  margin-top: 6px;
+  margin-left: 50px !important;
+  color: var(--color-text);
+  text-shadow: 1px 1px 3px var(--card-bg);
+}
+
+.header:not(.expanded):hover h1 {
+  font-size: xx-large;
+  margin-left: 15px;
+  text-shadow: 1px 2px 5px var(--card-bg);
+  transform: translateY(-1px);
+}
+
+.header:hover h1{
+  color: var(--color-text);
+}
+
+/* Change text color on hover for entire header */
+.header:hover h1,
+.header:hover .logo svg{
+  fill: var(--card-bg) !important;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.header.expandedHeader .nav{
+  margin-left: 50px;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: small;
+}
+
+.nav-item {
+  list-style: none;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-link,
+.nav-item label {
+  width: 150px;
+  min-width: 100px;
+  color: var(--nav-link-color);
+  text-decoration: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out, font-weight 0.25s ease-in-out;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-weight: 500
+}
+
+.nav-link:hover,
+.nav-item label:hover {
+  background-color: var(--nav-link-hover-bg-color);
+  border-radius: var(--border-radius);
+  color: var(--card-text) !important; /* Force text color on hover */
+}
+
+.nav-item label:hover{
+  
+  font-weight: 1000
+}
+
+/* Sub-navigation list styling */
+.sub-nav-list {
+  margin: 0 0 0 5px;
+  padding: 0;
+}
+
+/* Navigation item label color */
+.nav-item {
+  color: var(--color-text);
+}
+
+/* Hover effect for nav-item label inside header */
+.header:hover .nav-item label {
+  color: var(--card-bg);
+}
+
+.header nav{
+  width: 100%;
+}
+
+.header nav li:last-of-type {
+  width: 10vw;
+}
+
+/* Header content styling */
+.header-content {
+  display: flex;
+  min-width: 20%;
+}
+
+/* Sub-nav specific adjustments */
+.sub-nav-list {
+  border-left: 2px solid var(--color-bg-alpha1);
+  transition: all 0.5s ease-in-out, margin 0.5s ease-in-out 0.35s;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  padding-left: 5px;
+}
+
+.sub-nav-list:hover{
+  border-left: 2px solid var(--accent4);
+}
+
+/* Optional: Add max-height to manage expand/collapse animations */
+.sub-nav-list.collapsed {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.sub-nav-list.expanded {
+  max-height: 500px; /* Adjust as needed */
+}
+
+/* Variables (converted to standard CSS) */
+.hamburger {
+  --ham__duration: 0.5s;
+  --ham__line: 4px; /* Line height/thickness */
+  --ham__color: #333; /* Hamburger color */
+  --ham__wh: calc(10 * var(--ham__line)); /* Hamburger width/height */
+}
+
+.hamburger {
+  width: var(--ham__wh);
+  height: var(--ham__wh);
+  position: relative;
+  display: inline-block;
+  background: none;
+  transform: scale(0.6) translateY(-10px);
+}
+
+.hamburger:hover{
+  background: none;
+}
+
+.hamburger .line {
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  left: 50%;
+  transform: translateX(-50%) scale(1);
+  background-color: var(--ham__color);
+  border-radius: 2px;
+  transition: all var(--ham__duration) ease-in-out;
+  z-index: 1;
+}
+
+.hamburger .ham {
+  top: 30%;
+  background-color: transparent;
+  box-shadow: 0 0 0px var(--ham__line) var(--ham__color) inset;
+  box-sizing: border-box;
+  transform: translateX(-50%) scale(1);
+  transition: all calc(var(--ham__duration) / 2) ease-in-out;
+  z-index: 0;
+}
+
+.hamburger .bun-top {
+  top: 0;
+}
+
+.hamburger .bun-bottom {
+  top: 60%;
+}
+
+/* Cross in circle */
+.hamburger.clicked {
+  transform: rotate(180deg) translateY(10px) scale(0.6); /* Makes reverse animation different */
+  opacity: 0.8;
+}
+
+.hamburger.clicked .ham {
+  top: 0%;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  transform: translateX(-50%) translateY(0%) rotate(135deg);
+}
+
+.header .hamburger.clicked .line:not(.ham){
+  box-shadow: 0 0 0px var(--ham__line) var(--card-bg) inset;
+}
+
+.header:hover .hamburger.clicked .line{
+  box-shadow: 0 0 0px var(--ham__line) var(--card-bg) inset;
+}
+
+.hamburger.clicked .bun-top {
+  transform: translateX(-50%) translateY(450%) rotate(45deg) scale(0.5);
+}
+
+.hamburger.clicked .bun-bottom {
+  transform: translateX(-50%) translateY(-150%) rotate(-45deg) scale(0.5);
+}

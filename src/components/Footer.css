@@ -1,0 +1,131 @@
+/* src/components/Footer.css */
+
+.footer {
+  background-color: #f9f9f9;
+  color: var(--card-bg);
+  padding: 0;
+  padding-top: 70px;
+  font-size: small;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/exampleLogo1.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.05;
+  z-index: 0;
+  pointer-events: none;
+}
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: auto;
+    padding-bottom: 80px;
+  }
+
+  .footer span{
+    width: min-content;
+  }
+
+  .footer-content > *{
+    max-width: 200px;
+  }
+  
+  .social-links,
+  .location{
+    display: flex;
+    justify-content: end;
+    list-style: none;
+    padding: 0;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+  }
+
+  .social-links{
+    margin-top: 30px;
+    margin-left: 80px;
+  }
+
+  .footer-content p,
+  .footer-content a{
+    font-size: small;
+    margin: 0;
+    padding: 0;
+  }
+
+  .location a{
+    font-weight: 800;
+  }
+  
+  .social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--card-bg);
+    text-decoration: none;
+    gap: 5px;
+    width: 100px;
+  }
+  
+  .social-links a:hover {
+    color: var(--color-link-hover);
+  }
+  
+  .footer-bottom {
+    font-size: x-small;
+    margin-left: 10px;
+    padding-top: 1rem;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+  }
+  
+  .social-links svg{
+    --size: 20px;
+    height: var(--size);
+    width: var(--size);
+  }
+
+  .footer span:has(.logo) h1{
+    transform: translateY(9px);
+  }
+
+  .footer i{
+    font-weight: 200;
+  }
+
+  .footer .footer-content > div:first-of-type{
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+  }
+
+  .footer .footer-content > div:first-of-type p{
+    font-size: xx-small;
+    margin: 0 20px;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .footer .footer-content > div:first-of-type p{
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .footer .footer-content > div:first-of-type{
+      flex-direction: column;
+    }
+  }

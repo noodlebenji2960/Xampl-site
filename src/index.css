@@ -1,0 +1,153 @@
+:root {
+  --accent1: #DB6400;
+  --accent2: #FFA62B;
+  --accent3: #4CADB4;
+  --accent4: #2b82a1;
+
+  /* Typography */
+  --font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --line-height: 1.5;
+  --font-weight: 400;
+  --font-synthesis: none;
+  --text-rendering: optimizeLegibility;
+  --font-smoothing: antialiased;
+
+  /* Colors */
+  --color-text: rgba(255, 255, 255, 0.87);
+  --color-bg: #ada69f;
+  --color-bg-alpha1: #242424b8;
+  --color-link: var(--accent1);
+  --color-link-hover: var(--accent4);
+  --color-button-bg: #1a1a1a;
+  --color-button-border-hover: var(--accent1);
+  --color-dropdown-bg: #444;
+  --color-dropdown-border: #555;
+  --color-dropdown-hover: #555;
+  --color-shadow: black;
+  --color-shadow2: rgba(0, 0, 0, 0.535);
+  --nav-link-color: rgb(59, 59, 59);
+
+  /* General colors (light mode overrides) */
+  --color-text-light: #213547;
+  --color-bg-light: #ffffff;
+  --color-link-hover-light: #747bff;
+  --color-button-bg-light: #f9f9f9;
+
+  /* Carousel */
+  --carousel-height: 45vh;
+  --carousel-nav-btn-size: 40px;
+  --carousel-nav-btn-padding: 10px;
+  --carousel-dot-hover-bg: #333;
+  --carousel-bg: rgba(0, 0, 0, 0.5);
+  --carousel-dots-bg: rgba(0, 0, 0, 0.5);
+
+  /* Layout */
+  --container-max-width: 1280px;
+  --container-padding: 2rem;
+  --section-offset-top: -50px;
+  --card-margin: 15px;
+  --card-padding: 10px;
+  --card-bg: #222;
+  --card-border: #444;
+  --card-border-radius: 10px;
+  --card-z-index: 1;
+
+  /* Borders & Radius */
+  --border-radius-small: 5px;
+  --border-radius-large: 50%;
+  --border-radius-card: 10px;
+  --border-radius-full: 50%;
+
+  /* Header & Navigation */
+  --header-padding: 5px 20px;
+  --nav-item-margin-right: 20px;
+  --nav-link-padding: 10px 15px;
+  --dropdown-z-index: 99;
+
+  /* Box Shadow */
+  --box-shadow-color: var(--color-shadow);
+  --box-shadow-color2: var(--color-shadow2);
+}
+
+/* Global resets */
+#root {
+  padding: 0;
+  margin: 0;
+  background: #eaeaea;
+}
+
+body {
+  margin: 0;
+  width: 100vw !important;
+  min-height: 100vh;
+  font-family: var(--font-family);
+  line-height: var(--line-height);
+  font-weight: var(--font-weight);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  font-synthesis: var(--font-synthesis);
+  text-rendering: var(--text-rendering);
+  -webkit-font-smoothing: var(--font-smoothing);
+  -moz-osx-font-smoothing: var(--font-smoothing);
+  overflow-x: hidden;
+}
+
+main{
+  max-width: 900px;
+  margin: auto;
+  padding: 0 30px;
+  transition: all 0.10s ease-in-out;
+}
+
+@media screen and (max-width: 600px) {
+  main{
+    padding: 0 10px;
+  }
+}
+
+/* Links */
+a {
+  font-weight: 500;
+  color: var(--color-link);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--color-link-hover);
+}
+
+/* Headings */
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+span{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+/* Buttons */
+button {
+  border-radius: var(--border-radius-small);
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--color-button-bg);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+/* Light mode adjustments */
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-text: var(--color-text-light);
+    --color-bg: var(--color-bg-light);
+    --color-link-hover: var(--color-link-hover-light);
+    --color-button-bg: var(--color-button-bg-light);
+  }
+}

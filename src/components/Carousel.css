@@ -1,0 +1,106 @@
+.carousel {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 0 0 25px 25px;
+  border-left: 1px solid var(--color-text);
+  border-right: 1px solid var(--color-text);
+  box-shadow: 0 5px 10px var(--color-bg);
+}
+
+.carousel .carousel-inner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--carousel-height);
+  min-height: 200px;
+  max-height: 800px;
+}
+
+.carousel .carousel-image {
+  width: 100%;
+  height: 100%;
+  background: center / cover no-repeat;
+  transition: background-image 1.25s ease-in-out;
+}
+
+.carousel .prev,
+.carousel .next {
+  --nav-btn-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  height: var(--nav-btn-size);
+  width: var(--nav-btn-size);
+  padding: 5px;
+  font-size: 12px;
+  color: white;
+  background-color: var(--color-bg-alpha1);
+  border: none;
+  border-radius: var(--border-radius-full);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: all 0.25s ease, left 0.25s ease-in-out 0.5s, right 0.25s ease-in-out 0.5s, opacity 0.25s ease-in-out 0.5s;
+}
+
+.carousel .prev { left: -10px; }
+.carousel .next { right: -10px; }
+
+.carousel:hover .prev,
+.carousel:hover .next,
+.carousel:hover .dots {
+  opacity: 100% !important;
+}
+
+.carousel:hover .prev { left: 10px; }
+.carousel:hover .next { right: 10px; }
+
+.carousel .prev:hover,
+.carousel .next:hover {
+  background-color: var(--color-bg) !important;
+}
+
+.carousel .dots {
+  position: absolute;
+  bottom: 75px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  padding: 0 5px;
+  background-color: var(--color-bg-alpha1);
+  border-radius: 13px;
+  text-align: center;
+  opacity: 0;
+  z-index: 1;
+  transition: all 0.25s ease-in-out 0.5s;
+}
+
+.carousel:hover .dots { bottom: 55px; }
+
+.carousel .dot {
+  --dot-size: 8px;
+  display: inline-block;
+  height: var(--dot-size);
+  width: var(--dot-size);
+  margin: 0 3px;
+  background-color: var(--color-bg);
+  border-radius: var(--border-radius-full);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  transform: translateY(-2px);
+}
+
+.carousel .dot.active { background-color: var(--accent2); }
+
+.carousel .dot:hover {
+  background-color: var(--color-text);
+  outline: 1px solid var(--color-text);
+}
+
+.carousel .dot.active:hover {
+  background-color: var(--accent2);
+  outline: 1px solid var(--accent2);
+}

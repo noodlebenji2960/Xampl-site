@@ -1,0 +1,73 @@
+.contact-us {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+
+.contact-us::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  width: 200vw;
+  z-index: -1;
+}
+
+.contact-us .contact-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.contact-us .form-group {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 50px);
+  margin-bottom: 1rem;
+}
+
+.contact-us .form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.contact-us .form-group input,
+.contact-us .form-group textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contact-us .form-group textarea {
+  resize: vertical;
+}
+
+.contact-us .contact-form span {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.contact-us .contact-form button {
+  width: fit-content;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--accent3);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+.contact-us .contact-form button:hover {
+  color: var(--card-bg);
+  background-color: var(--color-text);
+}
+
+.contact-us .status-message {
+  margin-top: 1rem;
+  color: green;
+}
